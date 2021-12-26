@@ -16,16 +16,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install # will run `yarn install` command
-          
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build # will run `yarn build` command
-        
+        uses: actions/checkout@v2        
         
       # Log in to Docker
       - name: Login to Docker Hub
@@ -46,7 +37,7 @@ jobs:
       - name: Build Docker Image
         # kubectl apply -f issuer-config.yml
         run: |
-          docker build --tag  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{GITHUB.SHA}} ./build
+          docker build --tag  ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{GITHUB.SHA}} .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.APP_NAME }}:${{GITHUB.SHA}}
 
       # Deploys to K3s
