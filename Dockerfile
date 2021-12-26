@@ -1,4 +1,4 @@
 FROM nginx
 EXPOSE 3000
-COPY . /etc/nginx
+COPY ./build/ /etc/nginx
 
