@@ -4,6 +4,7 @@ COPY package.json ./
 COPY yarn.lock ./
 COPY src ./src
 COPY public ./public
+RUN apt-get install git -y
 RUN yarn install --frozen-lockfile --check-files --network-timeout 600000
 RUN yarn build --noninteractive
 RUN yarn install --frozen-lockfile --check-files --production --modules-folder node_modules_prod --network-timeout 600000
