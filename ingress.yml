@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-production
   name: APP_NAME-ingress
   namespace: APP_NAME-system
 spec:
@@ -17,8 +17,7 @@ spec:
             name: APP_NAME-svc
             port:
               number: 3000
-  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNamedds
+  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
   - hosts:
     - APP_NAME.teoo.io
     secretName: APP_NAME-ingress-cert
-
