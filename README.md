@@ -15,7 +15,7 @@ First, make sure Docker is installed. Then, from the repository directory, build
     $ sudo docker build --tag jsnes       # Use the Dockerfile to build a docker container using the source
     $ sudo docker run -it -p 3000:3000 jsnes:latest       # you can also run the container detached by using -d instead of -it
 ```
-This will make the app available from a local browser at on https://localhost:3000.
+This will make the app available from a local browser at https://localhost:3000.
 
 ### 🚀 Running on Yarn/npm
 First, make sure npm and nodejs are installed.
