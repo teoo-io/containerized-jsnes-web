@@ -23,7 +23,7 @@ const config = {
           url: "https://cdn.jsdelivr.net/gh/teoo-io/jsnes-web@master/public/roms/Hudson's%20Adventure%20Island%20(USA).nes"
       },
       super_mario_bros_2: {
-          name: "Super Mario Bros 3",
+          name: "Super Mario Bros 2",
           description: <span>Super Mario Bros 2 ROM.</span>,
           url: "https://cdn.jsdelivr.net/gh/teoo-io/jsnes-web@master/public/roms/Super%20Mario%20Bros%202.nes"
       },
