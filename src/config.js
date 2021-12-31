@@ -22,6 +22,16 @@ const config = {
           description: <span>Hudson's Adventure Island ROM.</span>,
           url: "https://cdn.jsdelivr.net/gh/teoo-io/jsnes-web@master/public/roms/Hudson's%20Adventure%20Island%20(USA).nes"
       },
+      super_mario_bros_2: {
+          name: "Super Mario Bros 3",
+          description: <span>Super Mario Bros 2 ROM.</span>,
+          url: "https://cdn.jsdelivr.net/gh/teoo-io/jsnes-web@master/public/roms/Super%20Mario%20Bros%202.nes"
+      },
+      adventure_island_2: {
+          name: "Hudson's Adventure Island 2",
+          description: <span>Hudson's Adventure Island 2 ROM.</span>,
+          url: "https://cdn.jsdelivr.net/gh/teoo-io/jsnes-web@master/public/roms/Adventure%20Island%20II%20(USA).nes"
+      },
   },
   GOOGLE_ANALYTICS_CODE: process.env.REACT_APP_GOOGLE_ANALYTICS_CODE,
   SENTRY_URI: process.env.REACT_APP_SENTRY_URI
