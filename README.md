@@ -1,29 +1,72 @@
-# JSNES Web UI
+# 🕹️ Containerized JSNES Web UI 🕹️
 
-A React-based web UI for [JSNES](https://github.com/bfirsh/jsnes).
+A containerized version of [BFirsh's](https://github.com/bfirsh) React-based web UI for [JSNES](https://github.com/bfirsh/jsnes).
 
-## Running in development
+## 📍 Getting Started
+The easiest way to run the JSNES Web UI locally is on Docker, but for dev purposes it can also be run using npm/yarn.
 
-    $ yarn install
-    $ yarn start
+All YAML's and scripts necessary for a CI/CD deployment to Kubernetes are included in the repo as well (set-up steps covered below).  
 
-## Building for production
+```bash
+    
+```
 
-    $ yarn build
 
-The built app will be in `build/`.
+### 🐳 Docker
+First, make sure Docker is installed. Then, from the repository directory, build the Docker image from source, and run it.
 
-## Running tests
+```BASH
+    $ sudo docker build --tag jsnes       # Use the Dockerfile to build a docker container using the source
+    $ sudo docker run -it -p 3000:3000 jsnes:latest       # you can also run the container detached by using -d instead of -it
+```
+This will make the app available from a local browser at on https://localhost:3000.
 
+### 🚀 Running on Yarn/npm
+First, make sure npm and nodejs are installed.
+
+```BASH
+$ yarn install
+$ yarn start
+```
+OR
+
+```BASH
+$ npm install
+$ npm start
+```
+
+### ☸ Deploy to Kubernetes CI/CD
+First, fork this repository to your GitHub account and make sure GitHub Actions are allowed for this repository (see 'Actions' tab under repository Settings).
+
+With GitHub Actions enabled, the CI/CD script included in the `.github/workflows/deploy.yml` wil run every time changes are pushed to 
+the `master` branch - but it will need the following GitHub Action "secrets" to be defined (see 'Secrets' tab under repository Settings):
+- `APP_NAME`: The name of your app with no trailing spaces (for usage see `deployment.yml` `service.yml` and `ingress.yml` files).
+- `KUBE_CONFIG`: Your Kubeconfig file pointing to your exposed Kubernetes API.
+- `DOCKERHUB_USERNAME`: Your Docker Hub account username.
+- `DOCKERHUB_TOKEN`: The API token to authenticate the Docker Hub account and push images to your repository.
+
+Lastly, modify the `deployment.yml`, `service.yml` and `ingress.yml` files with your own details (domain name and certificate issuer if using Cert-Manager). 
+
+When changes are pushed to the `master` branch and the script runs, it will first log in to Docker Hub using your credentials passed in as secrets; it will 
+then push the built image to your Docker Hub repository. 
+
+A namespace will be created for your app using your `APP_NAME` variable, and the `deployment.yml`, `service.yml` and `ingress.yml` will be applied using Kubectl.
+If you need to deploy an ingress, make sure to uncomment the last two lines of the `.github/workflows/deploy.yml` script.
+
+
+## 🩺 Running tests
+```BASH
     $ yarn test
-
+```
 ## Formatting code
 
 All code must conform to [Prettier](https://prettier.io/) formatting. The test suite won't pass unless it does.
 
 To automatically format all your code, run:
 
+```BASH
     $ yarn run format
+```
 
 ## Embedding JSNES in your own app
 
@@ -48,4 +91,4 @@ const config = {
 }
 ```
 
-Then, add the ROM file as `public/roms/myrom/myrom.nes`. The ROM should now be available to play at http://localhost:3000/run/myrom
+Then, add the ROM file as `public/roms/myrom/myrom.nes`.
