@@ -26,9 +26,9 @@ class ListPage extends Component {
               <header className="mb-4">
                 <h1 className="mb-3">JSNES</h1>
                 <p>
-                  A JavaScript NES emulator.{" "}
-                  <a href="https://github.com/bfirsh/jsnes">
-                    Source on GitHub.
+                  A containerized JavaScript NES emulator running on K3s.{" "}
+                  <a href="https://github.com/teoo-io/containerized-jsnes-web">
+                    Source + CI/CD on GitHub.
                   </a>
                 </p>
               </header>
