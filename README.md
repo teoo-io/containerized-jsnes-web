@@ -7,10 +7,6 @@ The easiest way to run the JSNES Web UI locally is on Docker, but for dev purpos
 
 All YAML's and scripts necessary for a CI/CD deployment to Kubernetes are included in the repo as well (set-up steps covered below).  
 
-```bash
-    
-```
-
 
 ### 🐳 Docker
 First, make sure Docker is installed. Then, from the repository directory, build the Docker image from source, and run it.
