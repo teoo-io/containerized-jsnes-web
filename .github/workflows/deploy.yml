@@ -55,5 +55,5 @@ jobs:
           sed -i'' -e 's/DOCKERHUB_USERNAME/${{ secrets.DOCKERHUB_USERNAME }}/g' -e 's/APP_NAME/${{ secrets.APP_NAME }}/g' service.yml
           kubectl apply -f service.yml
           
-          # sed -i'' -e 's/DOCKERHUB_USERNAME/${{ secrets.DOCKERHUB_USERNAME }}/g' -e 's/APP_NAME/${{ secrets.APP_NAME }}/g' ingress.yml
-          # kubectl apply -f ingress.yml
+          sed -i'' -e 's/DOCKERHUB_USERNAME/${{ secrets.DOCKERHUB_USERNAME }}/g' -e 's/APP_NAME/${{ secrets.APP_NAME }}/g' ingress.yml
+          kubectl apply -f ingress.yml
