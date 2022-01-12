@@ -17,7 +17,7 @@ First, make sure Docker is installed. Then, from the repository directory, build
 ```
 This will make the app available from a local browser at https://localhost:3000.
 
-### 🚀 Running on Yarn/npm
+### 🚀 Running with Yarn/npm
 First, make sure npm, nodejs, and yarn are installed, then run:
 
 ```BASH
