@@ -12,7 +12,7 @@ All YAML's and scripts necessary for a CI/CD deployment to Kubernetes are includ
 First, make sure Docker is installed. Then, from the repository directory, build the Docker image from source, and run it.
 
 ```BASH
-    $ sudo docker build --tag jsnes       # Use the Dockerfile to build a docker container using the source
+    $ sudo docker build --tag jsnes .       # Use the Dockerfile to build a docker container using the source
     $ sudo docker run -it -p 3000:3000 jsnes:latest       # you can also run the container detached by using -d instead of -it
 ```
 This will make the app available from a local browser at https://localhost:3000.
